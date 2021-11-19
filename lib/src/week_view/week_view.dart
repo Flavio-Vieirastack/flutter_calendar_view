@@ -388,7 +388,7 @@ class WeekViewState<T> extends State<WeekView<T>> {
               onPressed: nextPage,
               icon: const Icon(Icons.arrow_forward_ios, size: 15,),
             ),
-            Text(_currentStartDate.toString())
+            Text(_currentStartDate.toString(), style: TextStyle(fontSize: 20),)
           ],
         );
   }
