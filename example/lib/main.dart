@@ -1,6 +1,8 @@
 import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 import 'model/event.dart';
 import 'pages/mobile/mobile_home_page.dart';
 import 'pages/web/web_home_page.dart';
@@ -22,6 +24,13 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Calendar Page Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData.light(),
+        localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: const [
+           Locale('pt', 'BR'),
+        ],
         home: ResponsiveWidget(
           mobileWidget: MobileHomePage(),
           webWidget: WebHomePage(),
