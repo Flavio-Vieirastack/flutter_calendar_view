@@ -379,29 +379,34 @@ class WeekViewState<T> extends State<WeekView<T>> {
   /// Default view header builder. This builder will be used if
   /// [widget.dayTitleBuilder] is null.
   Widget _defaultWeekPageHeaderBuilder(DateTime startDate, DateTime endDate) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
       children: [
-        IconButton(
-          onPressed: previousPage,
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            size: 15,
-          ),
-        ),
         Padding(
-          padding: const EdgeInsets.only(bottom: 100, right: 150),
-          child: Text(
-            dateFomat.format(DateTime.parse(_currentStartDate.toString())),
-            style: TextStyle(fontSize: 16),
-          ),
-        ),
-        IconButton(
-          onPressed: nextPage,
-          icon: const Icon(
-            Icons.arrow_forward_ios,
-            size: 15,
-          ),
+              padding: const EdgeInsets.only(bottom: 100, right: 150),
+              child: Text(
+                dateFomat.format(DateTime.parse(_currentStartDate.toString())),
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              onPressed: previousPage,
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                size: 15,
+              ),
+            ),
+            
+            IconButton(
+              onPressed: nextPage,
+              icon: const Icon(
+                Icons.arrow_forward_ios,
+                size: 15,
+              ),
+            ),
+          ],
         ),
       ],
     );
