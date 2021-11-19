@@ -87,10 +87,15 @@ class WeekView<T> extends StatefulWidget {
 
   /// Called when user taps on event tile.
   final CellTapCallback<T>? onEventTap;
+  //POSITIONED
+  final double? bottomPosition;
+  final double? leftPostion;
 
   /// Main widget for week view.
   const WeekView({
     Key? key,
+    this.bottomPosition,
+    this.leftPostion,
     this.controller,
     this.eventTileBuilder,
     this.pageTransitionDuration = const Duration(milliseconds: 300),
@@ -382,36 +387,33 @@ class WeekViewState<T> extends State<WeekView<T>> {
     return Stack(
       children: [
         Positioned(
-            bottom: 30,
-            left: 40,
-            child: Text(
-              dateFomat.format(DateTime.parse(_currentStartDate.toString())),
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
+          bottom: widget.bottomPosition ?? 40,
+          left: widget.leftPostion ?? 40,
+          child: Text(
+            dateFomat.format(DateTime.parse(_currentStartDate.toString())),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
+        ),
         Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          IconButton(
-            onPressed: previousPage,
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              size: 15,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              onPressed: previousPage,
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                size: 15,
+              ),
             ),
-          ),
-          
-          IconButton(
-            onPressed: nextPage,
-            icon: const Icon(
-              Icons.arrow_forward_ios,
-              size: 15,
+            IconButton(
+              onPressed: nextPage,
+              icon: const Icon(
+                Icons.arrow_forward_ios,
+                size: 15,
+              ),
             ),
-          ),
-        ],
-      ),
-      
+          ],
+        ),
       ],
-      
     );
   }
 
