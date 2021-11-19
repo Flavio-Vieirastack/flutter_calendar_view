@@ -379,7 +379,7 @@ class WeekViewState<T> extends State<WeekView<T>> {
     return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(_currentStartDate.month.toString()),
+            
             IconButton(
               onPressed: previousPage,
               icon: const Icon(Icons.arrow_back_ios, size: 15,),
@@ -388,6 +388,7 @@ class WeekViewState<T> extends State<WeekView<T>> {
               onPressed: nextPage,
               icon: const Icon(Icons.arrow_forward_ios, size: 15,),
             ),
+            Text(_currentStartDate.toString())
           ],
         );
   }
