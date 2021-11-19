@@ -385,7 +385,7 @@ class WeekViewState<T> extends State<WeekView<T>> {
               padding: const EdgeInsets.only(bottom: 5, right: 150),
               child: Text(
                 dateFomat.format(DateTime.parse(_currentStartDate.toString())),
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
             ),
         Row(
