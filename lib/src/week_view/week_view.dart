@@ -376,23 +376,19 @@ class WeekViewState<T> extends State<WeekView<T>> {
   /// Default view header builder. This builder will be used if
   /// [widget.dayTitleBuilder] is null.
   Widget _defaultWeekPageHeaderBuilder(DateTime startDate, DateTime endDate) {
-    return WeekPageHeader(
-      startDate: _currentStartDate,
-      endDate: _currentEndDate,
-      onNextDay: nextPage,
-      onPreviousDay: previousPage,
-      onTitleTapped: () async {
-        final selectedDate = await showDatePicker(
-          context: context,
-          initialDate: startDate,
-          firstDate: CalendarConstants.minDate,
-          lastDate: CalendarConstants.maxDate,
+    return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              onPressed: previousPage,
+              icon: const Icon(Icons.arrow_back_ios, size: 15,),
+            ),
+            IconButton(
+              onPressed: nextPage,
+              icon: const Icon(Icons.arrow_forward_ios, size: 15,),
+            ),
+          ],
         );
-
-        if (selectedDate == null) return;
-        jumpToWeek(selectedDate);
-      },
-    );
   }
 
   /// Called when user change page using any gesture or inbuilt functions.
